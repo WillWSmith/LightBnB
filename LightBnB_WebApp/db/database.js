@@ -88,7 +88,6 @@ const addUser = function (user) {
  * @return {Promise<[{}]>} A promise to the reservations.
  */
 const getAllReservations = function (guest_id, limit = 10) {
-  console.log('guest_id:', guest_id,)
 
   const query = {
     text: `
@@ -182,8 +181,6 @@ const getAllProperties = (options, limit = 10) => {
     ORDER BY cost_per_night
     LIMIT $${queryParams.length};
   `;
-
-  console.log(query, queryParams);
 
   return pool.query(query, queryParams)
     .then((res) => {
